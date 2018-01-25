@@ -1,25 +1,30 @@
 package Neuronalesnetzwerk;
 
+import Neuronalesnetzwerk.Aktivierungsfunktionen.Aktivierungsfunktion;
 
 public class Test {
 	public static void main(String[] args) {
 		
-		Neuron[] eingabeneuronen = {new Neuron(1),new Neuron(1),new Neuron(1),new Neuron(1),new Neuron(1),new Neuron(1)};
-		
-
-		//gewichte für 6 eingabeneuronen und 1 ausgabeneuron 
-		Neuron gewichte[][][] = {{{new Neuron(1f), new Neuron(1f), new Neuron(1f),new Neuron(1f), new Neuron(1f), new Neuron(1f)}}};
-		
+		Neuron[] eingabeneuronen = Neuralesnetz.erzeugeNeuronen(5, new Neuron(8f,Aktivierungsfunktion.aktivierungsBool));
+		//gewichte für 5 eingabeneuronen und 1 ausgabeneuron 
+		Neuron gewichte[][][] = {{Neuralesnetz.erzeugeNeuronen(5, new Neuron(1f,(float in) -> {
+				return in;
+			}
+			))}};
 		/*
 		//gewichte für 5 eingabeneuronen, 3 in erster hidden schicht und 1 ausgabeneuron 
-			Neuron gewichte[][][] = 
-			{{{new Neuron(1f), new Neuron(1f), new Neuron(1f),new Neuron(1f), new Neuron(1f)},
-				{new Neuron(1f), new Neuron(1f), new Neuron(1f), new Neuron(1f), new Neuron(1f)},
-				{new Neuron(1f), new Neuron(1f), new Neuron(1f), new Neuron(1f), new Neuron(1f)}},
+		Neuron gewichte[][][] = 
+			{{
+				Neuralesnetz.erzeugeNeuronen(5, new Neuron(1f,Aktivierungsfunktion.aktivierungsIdentität)),
+				Neuralesnetz.erzeugeNeuronen(5, new Neuron(1f,Aktivierungsfunktion.aktivierungsIdentität)),
+				Neuralesnetz.erzeugeNeuronen(5, new Neuron(1f,Aktivierungsfunktion.aktivierungsIdentität)),
+			},{
+				{new Neuron(1f,Aktivierungsfunktion.aktivierungsBool)},
+				{new Neuron(1f,Aktivierungsfunktion.aktivierungsBool)},
+				{new Neuron(1f,Aktivierungsfunktion.aktivierungsBool)}
+				}};
 			
-				{{new Neuron(1)},{new Neuron(1)},{new Neuron(1)}}};
-		*/	
-		
+		//*/
 		Neuron[] ausgabeneuron = {new Neuron(420)};
 		Neuralesnetz nn = new Neuralesnetz(eingabeneuronen,gewichte, ausgabeneuron);
 		

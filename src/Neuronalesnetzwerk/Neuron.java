@@ -19,4 +19,7 @@ public class Neuron{
 	public void add(float g) {
 		val+=g;
 	}
+	public Neuron coppy() {
+		return new Neuron(val,f);
+	}
 }

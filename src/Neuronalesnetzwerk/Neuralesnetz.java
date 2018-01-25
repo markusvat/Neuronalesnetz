@@ -23,8 +23,12 @@ public class Neuralesnetz {
 		erzeugeGewichte(eingabeNeuronen.length,ausgabeSoll.length);
 	}
 	
-	public float[] erzeugeNeuronen(int anz) {
-		return new float[anz];
+	public static Neuron[] erzeugeNeuronen(int anz, Neuron n) {
+		Neuron[] a = new Neuron[anz];
+		for(int i = 0; i<anz;i++){
+			a[i]=n.coppy();
+		}
+		return a;
 	}
 	public Neuron[] erzeugeNeuronen(int anz, Neuron[] var) {
 		var = new Neuron[anz];
